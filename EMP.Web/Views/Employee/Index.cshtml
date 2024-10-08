@@ -1,0 +1,74 @@
+﻿@model List<EmployeeEntity>
+
+<div class="container">
+    <div class="row pt-4 pb-2">
+        <div class="col-6">
+            <h2 class="text-primary">Employee List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Employee" asp-action="CreateEmp" class="btn btn-primary">
+                Create New Employee
+            </a>
+        </div>
+    </div>
+
+    <div class="row pt-4 pb-2">
+        <div class="col-12">
+            <form asp-action="Index" method="get">
+                <div class="row">
+                    <div class="col-4">
+                        <input name="employeeId" type="number" class="form-control" placeholder="EmployeeId"/>
+                    </div>
+                    <div class="col-4">
+                        <input name="firstName" type="text" class="form-control" placeholder="First Name" />
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Division</th>
+                <th>Building</th>
+                <th>Title</th>
+                <th>Room</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.OrderBy(e => e.EmployeeId))
+            {
+                <tr>
+                    <td>@obj.EmployeeId</td>
+                    <td>@obj.FirstName @obj.LastName</td>
+                    <td>@obj.FirstName</td>
+                    <td>@obj.LastName</td>
+                    <td>@obj.Division</td>
+                    <td>@obj.Building</td>
+                    <td>@obj.Title</td>
+                    <td>@obj.Room</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Employee" asp-action="EditEmp" asp-route-FirstName="@obj.FirstName" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="Employee" asp-action="DeleteEmp" asp-route-EmployeeId="@obj.EmployeeId" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash3-fill"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

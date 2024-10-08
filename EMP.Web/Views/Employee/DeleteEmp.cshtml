@@ -1,0 +1,57 @@
+﻿@model Emp.Domain.Models.EmployeeEntity
+<div class="card show border-0 mt-4">
+    <dvv class="card-header bg-secondary bg-gradient mt-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Delete Employee</h2>
+            </div>
+        </div>
+    </dvv>
+    <div class="card-body p-4">
+        <form method="post">
+            <input asp-for="EmployeeId" type="hidden" />
+            <div class=" border p-3 mt-4">
+                <div class="mb-3 row p-1">
+                    <div class="col-6">
+                        <label class="pb-0">First Name</label>
+                        <input asp-for="FirstName" disabled type="text" class="form-control" />
+                        
+                    </div>
+                    <div class="col-6">
+                        <label class="pb-0">Last Name</label>
+                        <input asp-for="LastName" type="text" disabled class="form-control" />
+                        
+                    </div>
+
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <div class="col-6">
+                        <label class="pb-0">Division</label>
+                        <input asp-for="Division" type="text" disabled class="form-control" />
+                    </div>
+                    <div class="col-6">
+                        <label class="pb-0">Building</label>
+                        <input asp-for="Building" type="text" disabled class="form-control" />
+                    </div>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <div class="col-6">
+                        <label class="pb-0">Title</label>
+                        <input asp-for="Title" type="text" disabled class="form-control" />
+                    </div>
+                    <div class="col-6">
+                        <label class="pb-0">Room</label>
+                        <input asp-for="Room" type="text" disabled class="form-control" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+                <a asp-controller="Employee" asp-action="Index" class="btn btn-secondary" style="width:150px">Back </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
