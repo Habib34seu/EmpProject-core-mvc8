@@ -9,6 +9,6 @@ namespace Emp.Infrastructure.Repositories.IRepo;
 
 public interface IEmployeeRepository : IRepository<EmployeeEntity>
 {
-    void Update(EmployeeEntity obj);
+    Task UpdateAsync(EmployeeEntity obj);
     
 }

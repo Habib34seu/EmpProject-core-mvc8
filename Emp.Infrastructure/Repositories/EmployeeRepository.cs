@@ -19,8 +19,9 @@ public class EmployeeRepository : Repository<EmployeeEntity>, IEmployeeRepositor
     }
     
 
-    public void Update(EmployeeEntity obj)
+    public async Task UpdateAsync(EmployeeEntity obj)
     {
-        _context.Emps.Update(obj);
+         _context.Emps.Update(obj);
+      
     }
 }

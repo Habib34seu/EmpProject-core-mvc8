@@ -9,9 +9,8 @@ namespace Emp.Infrastructure.Repositories.IRepo;
 
 public interface IRepository<T> where T : class
 {
-    IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
-    T Get(Expression<Func<T, bool>> filter);
-    void Add(T entity);
-    void Remove(T entity);
-    void RemoveRange(IEnumerable<T> entity);
+    Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter);
+    Task<T> Get(Expression<Func<T, bool>> filter);
+    Task Add (T entity);
+    Task Remove(T entity);
 }
